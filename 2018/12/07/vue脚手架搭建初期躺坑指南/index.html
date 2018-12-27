@@ -56,10 +56,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="清蒸小闸蟹的blog">
 <meta property="og:description" content="搭建vue项目初期遇到的一些问题，记录下 vue-cli里默认的一些文件夹不能删除，如：static 在core跨域请求中headers若后端没有设置其他值，前端也不能带其他值，如header[&amp;#39;token&amp;#39;] = &amp;#39;xxx&amp;#39; XMLHttpRequest.withCredentials 有什么用?跨域请求是否提供凭据信息(cookie、HTTP认证及客户端SSL证">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-23T09:28:51.166Z">
+<meta property="og:updated_time" content="2018-12-27T06:06:06.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue脚手架搭建初期躺坑指南">
 <meta name="twitter:description" content="搭建vue项目初期遇到的一些问题，记录下 vue-cli里默认的一些文件夹不能删除，如：static 在core跨域请求中headers若后端没有设置其他值，前端也不能带其他值，如header[&amp;#39;token&amp;#39;] = &amp;#39;xxx&amp;#39; XMLHttpRequest.withCredentials 有什么用?跨域请求是否提供凭据信息(cookie、HTTP认证及客户端SSL证">
@@ -103,7 +103,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"slideUpIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -306,6 +306,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  205
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -326,6 +357,9 @@
 <li>vue-cli里默认的一些文件夹不能删除，如：<strong>static</strong></li>
 <li>在core跨域请求中headers若后端没有设置其他值，前端也不能带其他值，<br>如<code>header[&#39;token&#39;] = &#39;xxx&#39;</code></li>
 <li>XMLHttpRequest.withCredentials 有什么用?<br>跨域请求是否提供凭据信息(cookie、HTTP认证及客户端SSL证明等)<br>也可以简单的理解为，当前请求为跨域类型时是否在请求中协带cookie。<br>引用<a href="https://segmentfault.com/q/1010000015791317/a-1020000015791623" target="_blank" rel="noopener">axios配置withCredentials</a></li>
+<li>a标签打开pdf 403问题<br>服务器受限，来源其他网站，处理办法，清除referer 。<a href="https://www.cnblogs.com/rubylouvre/p/3541411.html" target="_blank" rel="noopener">参考</a></li>
+<li><a href="https://blog.csdn.net/wxl1555/article/details/81208570" target="_blank" rel="noopener">vue-router的history模式打包后页面空白的解决方案</a></li>
+<li>打包到服务器刷新访问404 <a href="https://www.jb51.net/article/140166.htm" target="_blank" rel="noopener">解决方案</a><br>新建的WEB-INF文件夹放在项目根目录</li>
 </ul>
 
       
@@ -367,9 +401,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           
-            <a href="/tags/http/" rel="tag"># http</a>
+            <a href="/tags/http/" rel="tag"><i class="fa fa-tag"></i> http</a>
           
         </div>
       
@@ -480,7 +514,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -574,6 +608,10 @@
 
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共390字</span>
+</div>
         
 
 
@@ -610,6 +648,8 @@
 
   
 
+
+  
 
 
 
@@ -649,6 +689,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
   
 
 
@@ -738,5 +783,6 @@
 
   
 
-</body>
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>

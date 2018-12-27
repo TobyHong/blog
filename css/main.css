@@ -1663,6 +1663,7 @@ pre .javascript .function {
   font-family: UKIJ Ekran;
 }
 .my_post_copyright {
+  display: none;
   width: 85%;
   max-width: 45em;
   margin: 2.8em auto 0;
@@ -1886,7 +1887,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c9cd9d;
+  background: #21ff3e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2022,7 +2023,10 @@ pre .javascript .function {
 }
 .powered-by,
 .theme-info {
-  display: inline-block;
+  display: none;
+}
+.post-meta-divider {
+  display: none;
 }
 .cc-license {
   margin-top: 10px;
