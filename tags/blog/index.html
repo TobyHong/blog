@@ -12,7 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
-
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
 
@@ -45,6 +54,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -68,7 +103,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="milo">
 
 
 
@@ -79,14 +114,14 @@
 
 
 
-<meta name="keywords" content="清蒸小闸蟹的blog">
+<meta name="keywords" content="洪隆de博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="清蒸小闸蟹的blog">
+<meta property="og:title" content="洪隆de博客">
 <meta property="og:url" content="http://www.lp04.com/tags/blog/index.html">
-<meta property="og:site_name" content="清蒸小闸蟹的blog">
+<meta property="og:site_name" content="洪隆de博客">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="清蒸小闸蟹的blog">
+<meta name="twitter:title" content="洪隆de博客">
 
 
 
@@ -122,7 +157,7 @@
 
 
 
-  <title>标签: blog | 清蒸小闸蟹的blog</title>
+  <title>标签: blog | 洪隆de博客</title>
   
 
 
@@ -152,12 +187,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">清蒸小闸蟹的blog</span>
+        <span class="site-title">洪隆de博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">记录日常点点滴滴，以备日后回首相看。</p>
+        <h1 class="site-subtitle" itemprop="description">web前端、伪coder</h1>
       
   </div>
 
@@ -183,6 +218,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -222,8 +267,8 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>blog<small>标签</small>
-        </h1>
+        <h2>blog<small>标签</small>
+        </h2>
       </div>
 
       
@@ -232,7 +277,7 @@
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2018/12/23/hexo搭建及基本命令/" itemprop="url">
               
@@ -240,7 +285,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2018-12-23T14:28:00+08:00" content="2018-12-23">
@@ -293,9 +338,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="milo.honglong">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="">
             
-              <p class="site-author-name" itemprop="name">milo.honglong</p>
+              <p class="site-author-name" itemprop="name"></p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -376,13 +421,22 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">milo.honglong</span>
+  <span class="author" itemprop="copyrightHolder"></span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">416</span>
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
 
 
 
@@ -390,14 +444,14 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
 
 
 
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共409字</span>
+  <span class="post-count">博客全站共416字</span>
 </div>
         
 
@@ -567,5 +621,5 @@
   
 
   undefined
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":false},"log":false});</script></body>
 </html>
