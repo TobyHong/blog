@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="http,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前沿什么是HttpsHTTPS（全称：Hypertext Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 HTTP 与 HTTPS 的区别HTTP 是明文传输，HTTPS 通过 SSL\TLS 进行了加密 HTTP">
+<meta name="keywords" content="http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈https">
+<meta property="og:url" content="http://www.lp04.com/2018/12/28/https/index.html">
+<meta property="og:site_name" content="洪隆de博客">
+<meta property="og:description" content="前沿什么是HttpsHTTPS（全称：Hypertext Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 HTTP 与 HTTPS 的区别HTTP 是明文传输，HTTPS 通过 SSL\TLS 进行了加密 HTTP">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-28T09:20:22.811Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谈谈https">
+<meta name="twitter:description" content="前沿什么是HttpsHTTPS（全称：Hypertext Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 HTTP 与 HTTPS 的区别HTTP 是明文传输，HTTPS 通过 SSL\TLS 进行了加密 HTTP">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"slideUpIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.lp04.com/2018/12/28/https/">
+
+
+
+
+
+  <title>谈谈https | 洪隆de博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">洪隆de博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">web前端、伪coder</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.lp04.com/2018/12/28/https/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="洪隆de博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">谈谈https</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T16:40:43+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前沿"><a href="#前沿" class="headerlink" title="前沿"></a>前沿</h1><h2 id="什么是Https"><a href="#什么是Https" class="headerlink" title="什么是Https"></a>什么是Https</h2><p>HTTPS（全称：Hypertext Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。</p>
+<h2 id="HTTP-与-HTTPS-的区别"><a href="#HTTP-与-HTTPS-的区别" class="headerlink" title="HTTP 与 HTTPS 的区别"></a>HTTP 与 HTTPS 的区别</h2><pre><code>HTTP 是明文传输，HTTPS 通过 SSL\TLS 进行了加密
+HTTP 的端口号是 80，HTTPS 是 443
+HTTPS 需要到 CA 申请证书，一般免费证书很少，需要交费
+HTTPS 的连接很简单，是无状态的；HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。
+</code></pre><h2 id="Https的作用"><a href="#Https的作用" class="headerlink" title="Https的作用"></a>Https的作用</h2><pre><code>内容加密 建立一个信息安全通道，来保证数据传输的安全；
+身份认证 确认网站的真实性
+数据完整性 防止内容被第三方冒充或者篡改
+</code></pre><h2 id="Https的劣势"><a href="#Https的劣势" class="headerlink" title="Https的劣势"></a>Https的劣势</h2><pre><code>对数据进行加解密决定了它比http慢
+需要进行非对称的加解密，且需要三次握手。
+</code></pre><h2 id="一次完整的Https的通讯步骤"><a href="#一次完整的Https的通讯步骤" class="headerlink" title="一次完整的Https的通讯步骤"></a>一次完整的Https的通讯步骤</h2><p>步骤 1：客户端向服务器发送 ClientHello 报文，请求建立 SSL 连接。</p>
+<p>ClientHello 报文：</p>
+<pre><code>客户端支持的 SSL 版本
+客户端支持的加密算法 
+客户端支持的密钥长度
+</code></pre><p>步骤 2：服务器收到客户端的请求后，向客户端发送 ServerHello 报文。</p>
+<p>ServerHello 报文：</p>
+<pre><code>决定使用的 SSL 版本
+决定使用的加密算法
+</code></pre><p>步骤 3：服务器继续发送 Certificate 报文，即服务器的数字证书，其中包含服务器的公开密钥。</p>
+<p>步骤 4：服务器发送 ServerHelloDone 报文，通知客户端进最初阶段的 SSL 握手协商部分结束。</p>
+<p>步骤 5：客户端收到以上所有信息后，发送 ClientKeyExchange 报文作为回应。该报文已使用步骤 3 中的公开密钥加密。其中包含一种称为 Pre-master secret 的随机密码串，用于之后的对称秘钥加密通信。</p>
+<p>步骤 6：客户端继续发送 ChangeCipherSpec 报文，该报文告诉服务器，在此之后的通信都会采用步骤 5 中的 Pre-master secret 秘钥加密。</p>
+<p>步骤 7：客户端发送 Finished 报文。改报文包含连接至今全部报文的整体校验值。</p>
+<p>步骤 8：服务端对客户端报文校验后，同样发送 ChangeCipherSpec 报文，含义与步骤 6 中的相同。</p>
+<p>步骤 9：服务端发送 Finished 报文。</p>
+<p>步骤 10：服务端和客户端的 Finished 报文交换完毕后，SSL 连接建立完成。从此后开始进行应用层协议的通信，即 HTTP 通信。</p>
+<p>步骤 11：HTTP 通信。</p>
+<p>步骤 12：客户端发送 close_notify 报文请求断开连接。之后再发送 TCP FIN 报文来关闭 TCP 通信。</p>
+<h2 id="HTTP通信有什么问题"><a href="#HTTP通信有什么问题" class="headerlink" title="HTTP通信有什么问题?"></a>HTTP通信有什么问题?</h2><h3 id="通信使用明文（不加密），内容可能被窃听-任何人均可以访问"><a href="#通信使用明文（不加密），内容可能被窃听-任何人均可以访问" class="headerlink" title="通信使用明文（不加密），内容可能被窃听(任何人均可以访问)"></a>通信使用明文（不加密），内容可能被窃听(任何人均可以访问)</h3><p>由于HTTP本身不具备加密的功能，所以也无法做到对通信整体（使用HTTP协议通信的请求和响应的内容）进行加密。即，HTTP报文使用明文（指未经过加密的报文）方式发送。</p>
+<p>此外互联网是由联通世界各个地方的网络设施组成,所有发送和接收经过某些设备的数据都可能被截获或窥视。例如大家都熟悉的抓包工具:Wireshark,它可以获取HTTP协议的请求和响应的内容，并对其进行解析。即使经过加密处理，就有可能让人无法破解报文信息的含义，但加密处理后的报文信息本身还是会被看到的。</p>
+<h3 id="不验证通信方的身份，因此有可能遭遇伪装-不清楚来访者信息"><a href="#不验证通信方的身份，因此有可能遭遇伪装-不清楚来访者信息" class="headerlink" title="不验证通信方的身份，因此有可能遭遇伪装(不清楚来访者信息)"></a>不验证通信方的身份，因此有可能遭遇伪装(不清楚来访者信息)</h3><p>HTTP协议中的请求和响应不会对通信方进行确认。在HTTP协议通信时，由于不存在确认通信方的处理步骤，任何人都可以发起请求。另外，服务器只要接收到请求，不管对方是谁都会返回一个响应（但也仅限于发送端的IP地址和端口号没有被Web服务器设定限制访问的前提下）</p>
+<p>HTTP协议的实现本身非常简单，不论是谁发送过来的请求都会返回响应，因此不确认通信方，会存在以下各种隐患。比如目标的Web服务器有可能是已伪装的Web服务器。</p>
+<h3 id="无法证明报文的完整性，所以可能遭篡改-变更你的返回信息，类似钓鱼"><a href="#无法证明报文的完整性，所以可能遭篡改-变更你的返回信息，类似钓鱼" class="headerlink" title="无法证明报文的完整性，所以可能遭篡改(变更你的返回信息，类似钓鱼)"></a>无法证明报文的完整性，所以可能遭篡改(变更你的返回信息，类似钓鱼)</h3><p>所谓完整性是指信息的准确度。若无法证明其完整性，通常也就意味着无法判断信息是否准确。由于HTTP协议无法证明通信的报文完整性，因此，在请求或响应送出之后直到对方接收之前的这段时间内，即使请求或响应的内容遭到篡改，也没有办法获悉。<br>换句话说，没有任何办法确认，发出的请求/响应和接收到的请求/响应是前后相同的。</p>
+<h2 id="HTTPS如何解决上述三个问题"><a href="#HTTPS如何解决上述三个问题" class="headerlink" title="HTTPS如何解决上述三个问题?"></a>HTTPS如何解决上述三个问题?</h2><p>HTTPS并非是应用层的一种新协议。只是HTTP通信接口部分用SSL（Secure Socket Layer）和TLS（Transport Layer Security）协议代替而已。</p>
+<p>通常，HTTP直接和TCP通信。当使用SSL时，则演变成先和SSL通信，再由SSL和TCP通信了。简言之，所谓HTTPS，其实就是身披SSL协议这层外壳的HTTP。</p>
+<p>在采用SSL后，HTTP就拥有了HTTPS的加密、证书和完整性保护这些功能。也就是说HTTP加上加密处理和认证以及完整性保护后即是HTTPS。</p>
+<p>其中涉及到加密问题，详情请看另一篇<a href="http://lp04.com/2018/12/28/https-tcl-ssl加密/" target="_blank" rel="noopener">Https的TLS/SSl加密</a></p>
+<h2 id="Https应用场景"><a href="#Https应用场景" class="headerlink" title="Https应用场景"></a>Https应用场景</h2><p>依据上文，一次https连接会比http请求流程多了很多步骤。<br>相比较http而言，https连接会慢的多。<br>考虑到性能这一块，https应用场景一般都用于支付、用户信息加密等场景。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://book.douban.com/subject/25863515/" target="_blank" rel="noopener">图解 HTTP</a></li>
+<li><a href="https://cherryblog.site/HTTPS.html" target="_blank" rel="noopener">谈谈 HTTPS</a></li>
+<li><a href="http://liuduo.me/2018/05/14/https-detail/" target="_blank" rel="noopener">HTTPS 原理详解</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>谈谈https</p>
+  <p><span>文章作者:</span></p>
+  <p><span>发布时间:</span>2018年12月28日 - 16:40:43</p>
+  <p><span>最后更新:</span>2018年12月28日 - 17:20:22</p>
+  <p><span>原始链接:</span><a href="/2018/12/28/https/" title="谈谈https">http://www.lp04.com/2018/12/28/https/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.lp04.com/2018/12/28/https/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http/" rel="tag"><i class="fa fa-tag"></i> http</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/27/pet-ManTou/" rel="next" title="馒头日常照">
+                <i class="fa fa-chevron-left"></i> 馒头日常照
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/28/https-tcl-ssl加密/" rel="prev" title="Https-TLS/SSL加密">
+                Https-TLS/SSL加密 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前沿"><span class="nav-number">1.</span> <span class="nav-text">前沿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Https"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-与-HTTPS-的区别"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP 与 HTTPS 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Https的作用"><span class="nav-number">1.3.</span> <span class="nav-text">Https的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Https的劣势"><span class="nav-number">1.4.</span> <span class="nav-text">Https的劣势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一次完整的Https的通讯步骤"><span class="nav-number">1.5.</span> <span class="nav-text">一次完整的Https的通讯步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP通信有什么问题"><span class="nav-number">1.6.</span> <span class="nav-text">HTTP通信有什么问题?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通信使用明文（不加密），内容可能被窃听-任何人均可以访问"><span class="nav-number">1.6.1.</span> <span class="nav-text">通信使用明文（不加密），内容可能被窃听(任何人均可以访问)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不验证通信方的身份，因此有可能遭遇伪装-不清楚来访者信息"><span class="nav-number">1.6.2.</span> <span class="nav-text">不验证通信方的身份，因此有可能遭遇伪装(不清楚来访者信息)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无法证明报文的完整性，所以可能遭篡改-变更你的返回信息，类似钓鱼"><span class="nav-number">1.6.3.</span> <span class="nav-text">无法证明报文的完整性，所以可能遭篡改(变更你的返回信息，类似钓鱼)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS如何解决上述三个问题"><span class="nav-number">1.7.</span> <span class="nav-text">HTTPS如何解决上述三个问题?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Https应用场景"><span class="nav-number">1.8.</span> <span class="nav-text">Https应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.9.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">4.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共4.1k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":false},"log":false});</script></body>
+</html>
