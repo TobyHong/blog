@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="配置webpack中dev.env.js,prod.env.js，解决多种命令打包指定的不同环境前言项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽… 修改前先下载个依赖npm i cross-env --sav">
+<meta name="description" content="前言项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽… 修改前先下载个依赖npm i cross-env --save-dev  // 安装 cross-env 依赖 cross-env能跨平台地设置及使用环境变">
 <meta name="keywords" content="vue,webpack,vue-cli">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack打包vue-cli,解决多种命令打包到指定的不同环境">
 <meta property="og:url" content="http://www.lp04.com/2019/01/02/webpack打包vue-cli-解决多种命令打包到指定的不同环境/index.html">
 <meta property="og:site_name" content="洪隆de博客">
-<meta property="og:description" content="配置webpack中dev.env.js,prod.env.js，解决多种命令打包指定的不同环境前言项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽… 修改前先下载个依赖npm i cross-env --sav">
+<meta property="og:description" content="前言项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽… 修改前先下载个依赖npm i cross-env --save-dev  // 安装 cross-env 依赖 cross-env能跨平台地设置及使用环境变">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-03T01:25:35.510Z">
+<meta property="og:updated_time" content="2019-01-03T01:27:50.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack打包vue-cli,解决多种命令打包到指定的不同环境">
-<meta name="twitter:description" content="配置webpack中dev.env.js,prod.env.js，解决多种命令打包指定的不同环境前言项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽… 修改前先下载个依赖npm i cross-env --sav">
+<meta name="twitter:description" content="前言项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽… 修改前先下载个依赖npm i cross-env --save-dev  // 安装 cross-env 依赖 cross-env能跨平台地设置及使用环境变">
 
 
 
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  897
+                  873
                 </span>
               
 
@@ -398,17 +398,17 @@
       
 
       
-        <h1 id="配置webpack中dev-env-js-prod-env-js，解决多种命令打包指定的不同环境"><a href="#配置webpack中dev-env-js-prod-env-js，解决多种命令打包指定的不同环境" class="headerlink" title="配置webpack中dev.env.js,prod.env.js，解决多种命令打包指定的不同环境"></a>配置webpack中dev.env.js,prod.env.js，解决多种命令打包指定的不同环境</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽…</p>
-<h2 id="修改前先下载个依赖"><a href="#修改前先下载个依赖" class="headerlink" title="修改前先下载个依赖"></a>修改前先下载个依赖</h2><pre><code>npm i cross-env --save-dev  // 安装 cross-env 依赖
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>项目开发中，我们会碰到本地、测试、预发布、生产环境等，而vue-cli只提供本地和生产环境，导致每次重新连接后端接口，要手动去更改连接链接，操作多了也麻烦，为了优雅的敲代码，这里提供了简单的修改就可以达到“自动化”的编译，想想是不是很爽…</p>
+<h1 id="修改前先下载个依赖"><a href="#修改前先下载个依赖" class="headerlink" title="修改前先下载个依赖"></a>修改前先下载个依赖</h1><pre><code>npm i cross-env --save-dev  // 安装 cross-env 依赖
 </code></pre><p>cross-env能跨平台地设置及使用环境变量</p>
 <p>大多数情况下，在windows平台下使用类似于: NODE_ENV=production的命令行指令会卡住，windows平台与POSIX在使用命令行时有许多区别（例如在POSIX，使用$ENV_VAR,在windows，使用%ENV_VAR%。。。）</p>
 <p>cross-env让这一切变得简单，不同平台使用唯一指令，无需担心跨平台问题</p>
-<h2 id="具体需要修改的文件"><a href="#具体需要修改的文件" class="headerlink" title="具体需要修改的文件"></a>具体需要修改的文件</h2><pre><code>/package.json
+<h1 id="具体需要修改的文件"><a href="#具体需要修改的文件" class="headerlink" title="具体需要修改的文件"></a>具体需要修改的文件</h1><pre><code>/package.json
 /config/dev.env.js
 /config/prod.env.js
 /src/main.js
 /其他
-</code></pre><h3 id="package-json"><a href="#package-json" class="headerlink" title="/package.json"></a>/package.json</h3><pre><code>&quot;scripts&quot;: {
+</code></pre><h2 id="package-json"><a href="#package-json" class="headerlink" title="/package.json"></a>/package.json</h2><pre><code>&quot;scripts&quot;: {
 &quot;dev&quot;: &quot;webpack-dev-server --inline --progress --config build/webpack.dev.conf.js&quot;,
 &quot;dev:test&quot;: &quot;cross-env NODE_ENV=development env_config=test webpack-dev-server --inline --progress --config build/webpack.dev.conf.js&quot;,
 &quot;dev:prod&quot;: &quot;cross-env NODE_ENV=development env_config=prod webpack-dev-server --inline --progress --config build/webpack.dev.conf.js&quot;,
@@ -420,7 +420,7 @@
 &quot;build:prod&quot;: &quot;cross-env NODE_ENV=production env_config=prod node build/build.js&quot;
 }
 </code></pre><p>这里主要添加一些打包命令，大家留意下和之前的区别就更改下，参数自己修改。</p>
-<h3 id="config-dev-env-js"><a href="#config-dev-env-js" class="headerlink" title="/config/dev.env.js"></a>/config/dev.env.js</h3><pre><code>&apos;use strict&apos;
+<h2 id="config-dev-env-js"><a href="#config-dev-env-js" class="headerlink" title="/config/dev.env.js"></a>/config/dev.env.js</h2><pre><code>&apos;use strict&apos;
 const merge = require(&apos;webpack-merge&apos;)
 const prodEnv = require(&apos;./prod.env&apos;)
 
@@ -442,7 +442,7 @@ module.exports = merge(prodEnv, {
   NODE_ENV: &apos;&quot;development&quot;&apos;,
   baseURL: baseURL
 })
-</code></pre><h3 id="config-prod-env-js"><a href="#config-prod-env-js" class="headerlink" title="/config/prod.env.js"></a>/config/prod.env.js</h3><pre><code>&apos;use strict&apos;
+</code></pre><h2 id="config-prod-env-js"><a href="#config-prod-env-js" class="headerlink" title="/config/prod.env.js"></a>/config/prod.env.js</h2><pre><code>&apos;use strict&apos;
 let baseURL = &apos;&apos;
 switch (process.env.env_config) {
   //测试环境
@@ -466,15 +466,15 @@ module.exports = {
   baseURL: baseURL
 }
 </code></pre><p>这里我看一个文章有用到merge合并dev文件，我觉得没必要，就去掉了。</p>
-<h3 id="main-js"><a href="#main-js" class="headerlink" title="/main.js"></a>/main.js</h3><pre><code>Vue.prototype.$baseUrl = process.env.baseURL;
+<h2 id="main-js"><a href="#main-js" class="headerlink" title="/main.js"></a>/main.js</h2><pre><code>Vue.prototype.$baseUrl = process.env.baseURL;
 </code></pre><p>这里可加可不加，具体看个人项目是否需要全局使用baseUrl,我这里没有使用，也贴出来。</p>
-<h3 id="其他-axios配置中使用"><a href="#其他-axios配置中使用" class="headerlink" title="/其他(axios配置中使用)"></a>/其他(axios配置中使用)</h3><pre><code>// 创建axios实例
+<h2 id="其他-axios配置中使用"><a href="#其他-axios配置中使用" class="headerlink" title="/其他(axios配置中使用)"></a>/其他(axios配置中使用)</h2><pre><code>// 创建axios实例
 const service = axios.create({
   baseURL: process.env.baseURL, // api的base_url
   timeout: 5000, // 请求超时时间
   crossDomain: true,
 });
-</code></pre><h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p>本地启动项目</p>
+</code></pre><h1 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h1><p>本地启动项目</p>
 <ul>
 <li>npm run dev:test(测试环境)</li>
 <li>npm run dev:prod(生产环境)</li>
@@ -486,8 +486,8 @@ const service = axios.create({
 <li>npm run build:prod(生产环境)</li>
 <li>npm run build:prep(预发布环境)</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>webpack还有很多有意思的配置，本人不才，还在摸索中，文章有什么问题，虚心听取意见，thx.</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://segmentfault.com/a/1190000014899779" target="_blank" rel="noopener">vuejs添加环境常量—-多环境开发打包场景解决方案之一</a><br><a href="https://segmentfault.com/a/1190000016308995" target="_blank" rel="noopener">配置webpack中dev.env.js、prod.env.js，解决不同命令下项目启动和打包到指定的环境</a><br><a href="https://segmentfault.com/a/1190000016410207" target="_blank" rel="noopener">Vue项目根据不同运行环境打包项目</a><br><a href="https://www.cnblogs.com/yanze/p/7879631.html" target="_blank" rel="noopener">cross-env使用笔记</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>webpack还有很多有意思的配置，本人不才，还在摸索中，文章有什么问题，虚心听取意见，thx.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://segmentfault.com/a/1190000014899779" target="_blank" rel="noopener">vuejs添加环境常量—-多环境开发打包场景解决方案之一</a><br><a href="https://segmentfault.com/a/1190000016308995" target="_blank" rel="noopener">配置webpack中dev.env.js、prod.env.js，解决不同命令下项目启动和打包到指定的环境</a><br><a href="https://segmentfault.com/a/1190000016410207" target="_blank" rel="noopener">Vue项目根据不同运行环境打包项目</a><br><a href="https://www.cnblogs.com/yanze/p/7879631.html" target="_blank" rel="noopener">cross-env使用笔记</a></p>
 
       
     </div>
@@ -508,7 +508,7 @@ const service = axios.create({
   <p><span>本文标题:</span>webpack打包vue-cli,解决多种命令打包到指定的不同环境</p>
   <p><span>文章作者:</span></p>
   <p><span>发布时间:</span>2019年01月02日 - 17:45:00</p>
-  <p><span>最后更新:</span>2019年01月03日 - 09:25:35</p>
+  <p><span>最后更新:</span>2019年01月03日 - 09:27:50</p>
   <p><span>原始链接:</span><a href="/2019/01/02/webpack打包vue-cli-解决多种命令打包到指定的不同环境/" title="webpack打包vue-cli,解决多种命令打包到指定的不同环境">http://www.lp04.com/2019/01/02/webpack打包vue-cli-解决多种命令打包到指定的不同环境/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.lp04.com/2019/01/02/webpack打包vue-cli-解决多种命令打包到指定的不同环境/" aria-label="复制成功！"></i></span>
   </p>
@@ -701,7 +701,7 @@ const service = axios.create({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置webpack中dev-env-js-prod-env-js，解决多种命令打包指定的不同环境"><span class="nav-number">1.</span> <span class="nav-text">配置webpack中dev.env.js,prod.env.js，解决多种命令打包指定的不同环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改前先下载个依赖"><span class="nav-number">1.2.</span> <span class="nav-text">修改前先下载个依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体需要修改的文件"><span class="nav-number">1.3.</span> <span class="nav-text">具体需要修改的文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json"><span class="nav-number">1.3.1.</span> <span class="nav-text">/package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-dev-env-js"><span class="nav-number">1.3.2.</span> <span class="nav-text">/config/dev.env.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-prod-env-js"><span class="nav-number">1.3.3.</span> <span class="nav-text">/config/prod.env.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-js"><span class="nav-number">1.3.4.</span> <span class="nav-text">/main.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他-axios配置中使用"><span class="nav-number">1.3.5.</span> <span class="nav-text">/其他(axios配置中使用)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用命令"><span class="nav-number">1.4.</span> <span class="nav-text">使用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.6.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改前先下载个依赖"><span class="nav-number">2.</span> <span class="nav-text">修改前先下载个依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体需要修改的文件"><span class="nav-number">3.</span> <span class="nav-text">具体需要修改的文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json"><span class="nav-number">3.1.</span> <span class="nav-text">/package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config-dev-env-js"><span class="nav-number">3.2.</span> <span class="nav-text">/config/dev.env.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config-prod-env-js"><span class="nav-number">3.3.</span> <span class="nav-text">/config/prod.env.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main-js"><span class="nav-number">3.4.</span> <span class="nav-text">/main.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他-axios配置中使用"><span class="nav-number">3.5.</span> <span class="nav-text">/其他(axios配置中使用)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用命令"><span class="nav-number">4.</span> <span class="nav-text">使用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
