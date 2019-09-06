@@ -343,6 +343,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/15/vue项目代码规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/15/vue项目代码规范/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -651,6 +661,10 @@ function setOpacity(node, val) {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/02/22/linux命令/" rel="prev" title="每日一条linux命令">
+                每日一条linux命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -678,6 +692,9 @@ function setOpacity(node, val) {
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -728,7 +745,7 @@ function setOpacity(node, val) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -739,7 +756,7 @@ function setOpacity(node, val) {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -750,7 +767,7 @@ function setOpacity(node, val) {
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -824,7 +841,7 @@ function setOpacity(node, val) {
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.2k</span>
+    <span title="Site words total count">12.6k</span>
   
 </div>
 
@@ -844,7 +861,7 @@ function setOpacity(node, val) {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共12.2k字</span>
+  <span class="post-count">博客全站共12.6k字</span>
 </div>
         
 
@@ -993,6 +1010,28 @@ function setOpacity(node, val) {
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'paxJmteWgUsT2q2SlL2WsJpT-gzGzoHsz',
+        appKey: 'GFg8YU02KSB2wTrp1CLgPMA2',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
